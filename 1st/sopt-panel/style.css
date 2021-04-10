@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 8px;
+  font-family: system-ui;
+  display: flex;
+}
+.panels {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+.panel {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: white;
+  flex: 1 0 auto;
+  transition: flex 0.7s;
+}
+.panel:hover {
+  cursor: pointer;
+}
+
+
+.panel:nth-child(1) {
+  background: linear-gradient(0deg, #f1f1f1 0%, #021116 90%);
+}
+.panel:nth-child(2) {
+  background: linear-gradient(0deg, #f1f1f1 0%, #021116 90%);
+}
+.panel:nth-child(3) {
+  background: linear-gradient(0deg, #f1f1f1 0%, #021116 90%);
+}
+.panel:nth-child(4) {
+  background: linear-gradient(0deg, #f1f1f1 0%, #021116 90%);
+}
+
+.panel.open {
+  flex: 5;
+}
+
+p {
+  text-transform: uppercase;
+  text-align: center;
+  transition: transform 1.2s;
+  font-size: 2rem;
+  height: 6rem;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+p:hover {
+  animation-name: glow;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+}
+
+.panel p:nth-child(1) {
+  transform: translateY(-200%);
+}
+.panel p:nth-child(3) {
+  transform: translateY(200%);
+}
+.panel.open p:nth-child(1),
+.panel.open p:nth-child(3) {
+  transform: translateY(0);
+}
+.panel p:nth-child(2) {
+  font-size: 3rem;
+}
+.panel.open p:nth-child(2) {
+  font-size: 3rem;
+  transition: font-size 1.2s;
+  animation-name: glow;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes glow {
+  0% {
+  }
+  50% {
+    text-shadow: 0 0 2rem rgb(62, 93, 128), 0 0 6rem white;
+  }
+  100% {
+    text-shadow: 0 0 0.1rem rgb(62, 93, 128);
+  }
+}
