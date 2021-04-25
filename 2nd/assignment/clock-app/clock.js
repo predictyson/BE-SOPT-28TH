@@ -1,6 +1,6 @@
 const digitalTime  = document.querySelector(".digital_time"),
     digitalButton = document.querySelector(".digital_button"),
-    header = document.querySelector(".header");
+    header = document.querySelector(".header"),
 
 const fillZero = (num) => {
     num = num + "";
@@ -48,11 +48,22 @@ const getTime = () => {
     return { year, month, day, hour, minute, second };
 };
 
+const drawClock = (hour, minute, second) => {
+    const hourDegree = (hour + minute / 60) * (360 /12) + 90,
+    minuteDegree = (minute + second / 60) * (360 / 60) + 90,
+    secondDegree = second * (360 /60) + 90;
+
+    analogHour.style.transform = `rotate(${hourDegree}deg)`;
+    analogMinute.style.transform = `rotate(${minuteDegree}deg)`;
+    analogSecond.style.transform = `rotate(${secondDegree}deg)`;
+};
+
 const drawTime = () => {
     const { year, month, day, hour, minute, second } = getTime();
 
     header.innerHTML = `Today is <span> ${month}</span>, ${year}`;
     digitalTime.innerHTML = `${fillZero(hour)} :  ${fillZero(minute)} : ${fillZero(second)}`;
+    drawClock(hour, minute, second);
 };
 
 const init = () => {
