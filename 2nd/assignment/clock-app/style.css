@@ -32,8 +32,7 @@
   }
   
   .digital_time {
-    font-size: 48px;
-    font-weight: bold;
+    font-size: 30px;
   }
   
   .digital_button {
@@ -42,10 +41,10 @@
     border: 1px solid white;
     padding: 5px;
     margin-left: 10px;
-    margin-bottom: 11px;
-    height: 36px;
-    width: 50px;
-    font-size: 20px;
+    margin-bottom: 4px;
+    height: 28px;
+    width: 36px;
+    font-size: 16px;
   }
 
   .analog_clock {
@@ -53,7 +52,7 @@
     height: 200px;
     border-radius: 100px;
     background-color: white;
-    margin: 30px auto;
+    margin: 10px auto;
   }
   
   .analog_clock > p {
@@ -65,10 +64,10 @@
   .analog_hour,
   .analog_minute,
   .analog_second {
-    height: 2px; /* 바늘의 두께 */
+    height: 2px; 
     border-radius: 1px;
     position: relative;
-    transform-origin: 100%; /* 오른쪽 끝을 기준으로 회전 */
+    transform-origin: 100%; 
     transform: rotate(90deg);
   }
   
@@ -107,6 +106,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 100px;
   }
   
   .weather {
@@ -117,7 +117,6 @@
   .weather_top {
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
     align-items: flex-end;
     justify-content: center;
   }
@@ -127,9 +126,18 @@
     font-weight: bold;
   }
   
+  .weather_top_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    height: 100px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+
+  }
   .weather_main {
     font-size: 32px;
-    margin-left: 30px;
     text-align: bottom;
   }
   
@@ -143,4 +151,9 @@
   .weather_temps > span,
   .weather_others > span {
     color: lightgray;
+  }
+
+  .weather_icon > img {
+    width: 100px;
+    height: 180px;
   }
