@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from "../components/main/Card";
 import Styled from "styled-components";
+import { getCardData } from "../lib/api";
 
 const MainWrap = Styled.div`
   display: grid;
@@ -8,19 +9,23 @@ const MainWrap = Styled.div`
   row-gap: 25px;
 `;
 
-const Main = () => {
-    const [userData, setUserData] = React.useState({
-        id:1,
-        date: 20210611, 
-        title: "diary title",
-        image: "",
-        weather: "clear",
-        tags: ["tag1", "tag2"],
-        });
+const Main = ({year, month}) => {
+    const [userData, setUserData] = React.useState(null);
+    const [rawData, setRawData] = React.useState(null);
 
+    React.useEffect(() => {
+        (async () =>{
+            const data = await getCardData();
+            setRawData(data);
+            data[year] && setUserData(data[year][month]);
+        })();
+    },[year, month]);
         return (
             <MainWrap>
-                <Card props={userData}/>;
+                   {userData &&
+        userData.map((data, index) => {
+          return <Card key={index} props={data} />;
+        })}
             </MainWrap>
     );
 };
