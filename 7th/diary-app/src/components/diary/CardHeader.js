@@ -46,7 +46,7 @@ const CardHeaderWrap = Styled.div`
     }
     `;
 
-const CardHeader = ({title, isReadOnly, handleChange, handleEdit, match, history }) => {
+const CardHeader = ({title, isReadOnly, handleChange, handleEdit,handleDelete, match, history }) => {
     const id = match.params.id;
 
     return (
@@ -73,7 +73,13 @@ const CardHeader = ({title, isReadOnly, handleChange, handleEdit, match, history
           완료
         </button>
       )}
-      {isReadOnly ? <button className="header__delete">삭제</button> : ""}
+           {isReadOnly ? (
+        <button className="header__delete" onClick={handleDelete}>
+          삭제
+        </button>
+      ) : (
+        ""
+      )}
         </CardHeaderWrap>
     );
 };
